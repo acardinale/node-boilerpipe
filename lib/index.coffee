@@ -132,6 +132,13 @@ class Boilerpipe
       callback null
 
 
+  getTitle: (callback) ->
+    @checkIsProcessed (err) =>
+      return callback err  if err?
+
+      @textDocument.getTitle callback
+
+
   getText: (callback) ->
     @checkIsProcessed (err) =>
       return callback err  if err?

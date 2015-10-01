@@ -1,9 +1,9 @@
 {
-  "name": "boilerpipe",
-  "version": "0.0.4",
+  "name": "ac-boilerpipe",
+  "version": "0.0.1",
   "author": {
-    "name": "Taeho Kim",
-    "email": "xissysnd@gmail.com"
+    "name": "Andrea Cardinale",
+    "email": "a.cardinale@webandtech.it"
   },
   "main": "./index",
   "dependencies": {
@@ -15,10 +15,10 @@
   "description": "A node.js wrapper for Boilerpipe, an excellent Java library for boilerplate removal and fulltext extraction from HTML pages.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/xissy/node-boilerpipe.git"
+    "url": "https://github.com/acardinale/node-boilerpipe.git"
   },
   "bugs": {
-    "url": "https://github.com/xissy/node-boilerpipe/issues"
+    "url": "https://github.com/acardinale/node-boilerpipe/issues"
   },
   "devDependencies": {
     "should": ">= 1.0.0",

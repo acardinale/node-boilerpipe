@@ -12,6 +12,7 @@ StringReader = java.import 'java.io.StringReader'
 BoilerpipeSAXInput = java.import 'de.l3s.boilerpipe.sax.BoilerpipeSAXInput'
 
 ArticleExtractor = java.import 'de.l3s.boilerpipe.extractors.ArticleExtractor'
+ArticleImageExtractor = java.import 'de.l3s.boilerpipe.extractors.ArticleImageExtractor'
 ArticleSentencesExtractor = java.import 'de.l3s.boilerpipe.extractors.ArticleSentencesExtractor'
 CanolaExtractor = java.import 'de.l3s.boilerpipe.extractors.CanolaExtractor'
 DefaultExtractor = java.import 'de.l3s.boilerpipe.extractors.DefaultExtractor'
@@ -29,6 +30,7 @@ ImageExtractor = java.import 'de.l3s.boilerpipe.sax.ImageExtractor'
 class Boilerpipe
   @Extractor:
     Article: ArticleExtractor.INSTANCE
+    ArticleImage: ArticleImageExtractor.INSTANCE
     ArticleSentences: ArticleSentencesExtractor.INSTANCE
     Canola: CanolaExtractor.INSTANCE
     Default: DefaultExtractor.INSTANCE
@@ -138,6 +140,12 @@ class Boilerpipe
 
       @textDocument.getContent callback
 
+  getTitle: (callback) ->
+    @checkIsProcessed (err) =>
+      return callback err  if err?
+
+      @textDocument.getTitle callback
+
 
   getHtml: (callback) ->
     @checkIsProcessed (err) =>
@@ -203,6 +211,10 @@ convertImageJavaObjectsToJs = (imageObjects, callback) ->
               imageObject.getAlt callback
             area: (callback) ->
               imageObject.getArea callback
+            attsKeys: (callback) ->
+              imageObject.getAttsKeys callback
+            attsValues: (callback) ->
+              imageObject.getAttsValues callback
           ,
             callback
     ,
